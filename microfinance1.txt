@@ -1,0 +1,236 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Apr 13, 2022 at 11:51 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.1.31
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `microfinance1`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `loanpayment`
+--
+
+CREATE TABLE `loanpayment` (
+  `id` int(11) NOT NULL,
+  `fullname` varchar(255) NOT NULL,
+  `dateofbirth` varchar(255) NOT NULL,
+  `gender` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `contact` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `userid` varchar(255) NOT NULL,
+  `loantype` varchar(255) NOT NULL,
+  `loandate` varchar(255) NOT NULL,
+  `months` varchar(255) NOT NULL,
+  `interest` varchar(255) NOT NULL,
+  `amount` varchar(255) NOT NULL,
+  `monthlypayment` varchar(255) NOT NULL,
+  `totalpayableamount` varchar(255) NOT NULL,
+  `totalbalance` varchar(255) NOT NULL,
+  `lasttransaction` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `loanpayment`
+--
+
+INSERT INTO `loanpayment` (`id`, `fullname`, `dateofbirth`, `gender`, `address`, `contact`, `email`, `userid`, `loantype`, `loandate`, `months`, `interest`, `amount`, `monthlypayment`, `totalpayableamount`, `totalbalance`, `lasttransaction`, `status`) VALUES
+(59, 'Bodino, Jomar f', '1996-04-18', 'Male', 'Buhi, San Miguel Catanduanes', '09123456789', 'jom@gmail.com', '202032  ', 'Personal Loans', '2022-04-13', '2', '10', '5000', '2750.00', '5500', '0', '2022-04-13', 'Finished'),
+(60, 'Bandido, Jak m', '1999-12-02', 'Male', 'hJHGJHG, hgajhgcg ghajg', '09182839172', 'SJGDJ@GMAIL.COM', '202033', 'Personal Loans', '2022-04-13', '10', '20', '20000', '2400.00', '24000', '24000', '', 'On Process');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `loanplans`
+--
+
+CREATE TABLE `loanplans` (
+  `loanplansid` int(255) NOT NULL,
+  `planid` varchar(255) NOT NULL,
+  `monthlypayment` varchar(255) NOT NULL,
+  `totalpayment` varchar(255) NOT NULL,
+  `months` varchar(255) NOT NULL,
+  `amount` varchar(255) NOT NULL,
+  `interest` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `loantypes`
+--
+
+CREATE TABLE `loantypes` (
+  `id` int(255) NOT NULL,
+  `types` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `loantypes`
+--
+
+INSERT INTO `loantypes` (`id`, `types`, `description`) VALUES
+(35, 'Personal Loans', 'Personal Loans');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `loanuserpayment`
+--
+
+CREATE TABLE `loanuserpayment` (
+  `id` int(255) NOT NULL,
+  `userid` varchar(255) NOT NULL,
+  `fullname` varchar(255) NOT NULL,
+  `dateofbirth` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `gender` varchar(255) NOT NULL,
+  `contact` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `loandate` varchar(255) NOT NULL,
+  `loantype` varchar(255) NOT NULL,
+  `months` varchar(255) NOT NULL,
+  `interest` varchar(255) NOT NULL,
+  `amount` varchar(255) NOT NULL,
+  `totalpayableamount` varchar(255) NOT NULL,
+  `monthlypayment` varchar(255) NOT NULL,
+  `totalbalance` varchar(255) NOT NULL,
+  `payment` varchar(255) NOT NULL,
+  `lasttransaction` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `loanuserpayment`
+--
+
+INSERT INTO `loanuserpayment` (`id`, `userid`, `fullname`, `dateofbirth`, `address`, `gender`, `contact`, `email`, `loandate`, `loantype`, `months`, `interest`, `amount`, `totalpayableamount`, `monthlypayment`, `totalbalance`, `payment`, `lasttransaction`, `status`) VALUES
+(88, '202032 ', 'Bodino, Jomar f', '1996-04-18', 'Buhi, San Miguel Catanduanes', 'Male', '09123456789', 'jom@gmail.com', '2022-04-13', 'Personal Loans', '2', '10', '5000', '5500', '2750.00', '2750', '2750.00', '2022-04-13', 'On Process'),
+(89, '202032  ', 'Bodino, Jomar f', '1996-04-18', 'Buhi, San Miguel Catanduanes', 'Male', '09123456789', 'jom@gmail.com', '2022-04-13', 'Personal Loans', '2', '10', '5000', '5500', '2750.00', '0', '2750.00', '2022-04-13', 'On Process');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member`
+--
+
+CREATE TABLE `member` (
+  `id` int(255) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `middlename` varchar(255) NOT NULL,
+  `dateofbirth` varchar(255) NOT NULL,
+  `age` varchar(255) NOT NULL,
+  `gender` varchar(255) NOT NULL,
+  `province` varchar(255) NOT NULL,
+  `municipality` varchar(255) NOT NULL,
+  `barangay` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `contact` varchar(255) NOT NULL,
+  `loanstatus` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `member`
+--
+
+INSERT INTO `member` (`id`, `firstname`, `lastname`, `middlename`, `dateofbirth`, `age`, `gender`, `province`, `municipality`, `barangay`, `email`, `password`, `contact`, `loanstatus`) VALUES
+(202032, 'Jomar', 'Bodino', 'f', '1996-04-18', '25', 'Male', 'Catanduanes', 'San Miguel', 'Buhi', 'jom@gmail.com', '', '09123456789', 'Finished'),
+(202033, 'Jak', 'Bandido', 'm', '1999-12-02', '21', 'Male', 'ghajg', 'hgajhgcg', 'hJHGJHG', 'SJGDJ@GMAIL.COM', '', '09182839172', 'On Process'),
+(202034, 'adasd', 'asdasd', 'asdad', '1999-12-12', '23', 'Male', 'adad', 'asdasd', 'asdasd', 'jom1@gmail.com', '', '091273617', ''),
+(202035, 'asd', 'asdasd', 'asdad', '2022-04-26', '23', 'Male', 'asdasd', 'asdasd', 'asdasd', 'jmr@gmail.com', '', '2342341', ''),
+(202036, 'ajhdasd', 'bod', 'jhad', '1999-08-12', '21', 'Female', 'cadad', 'asdads', 'asdad', 'j@gmail.com', '', '0918238712', '');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `loanpayment`
+--
+ALTER TABLE `loanpayment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `loanplans`
+--
+ALTER TABLE `loanplans`
+  ADD PRIMARY KEY (`loanplansid`);
+
+--
+-- Indexes for table `loantypes`
+--
+ALTER TABLE `loantypes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `loanuserpayment`
+--
+ALTER TABLE `loanuserpayment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `member`
+--
+ALTER TABLE `member`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `loanpayment`
+--
+ALTER TABLE `loanpayment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+
+--
+-- AUTO_INCREMENT for table `loanplans`
+--
+ALTER TABLE `loanplans`
+  MODIFY `loanplansid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20206;
+
+--
+-- AUTO_INCREMENT for table `loantypes`
+--
+ALTER TABLE `loantypes`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- AUTO_INCREMENT for table `loanuserpayment`
+--
+ALTER TABLE `loanuserpayment`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+
+--
+-- AUTO_INCREMENT for table `member`
+--
+ALTER TABLE `member`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202037;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
